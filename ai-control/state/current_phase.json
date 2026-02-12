@@ -1,6 +1,6 @@
 {
   "phase": "Phase 0 — Bootstrap",
-  "focus": "راه‌اندازی DB (PostgreSQL) + migrate اولیه + superuser دستورالعمل",
+  "focus": "قراردادهای مشترک core (slug/dates/settings singleton)",
   "active_task": "Phase0-03",
   "last_updated": "2026-02-12"
 }
