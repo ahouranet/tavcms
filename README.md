@@ -4,6 +4,7 @@
 
 ## پیش‌نیازها
 - Python 3.12.x
+- PostgreSQL 14+ (یا نسخه‌ی سازگار)
 
 ## راه‌اندازی محیط
 ```bash
@@ -13,7 +14,19 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## اجرای مایگریشن‌ها
+## تنظیم متغیرهای پایگاه‌داده PostgreSQL
+قبل از اجرای migration متغیرهای زیر را تنظیم کنید:
+```bash
+export POSTGRES_DB=tavcms
+export POSTGRES_USER=tavcms
+export POSTGRES_PASSWORD=tavcms
+export POSTGRES_HOST=127.0.0.1
+export POSTGRES_PORT=5432
+```
+
+> در صورت نیاز می‌توانید این مقادیر را متناسب با محیط توسعه/سرور تغییر دهید.
+
+## اجرای مایگریشن‌ها (Phase0-03)
 ```bash
 python manage.py migrate
 ```

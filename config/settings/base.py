@@ -1,8 +1,9 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = "change-me"
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "change-me")
 DEBUG = False
 ALLOWED_HOSTS: list[str] = []
 
@@ -49,8 +50,12 @@ ASGI_APPLICATION = "config.asgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_DB", "tavcms"),
+        "USER": os.getenv("POSTGRES_USER", "tavcms"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "tavcms"),
+        "HOST": os.getenv("POSTGRES_HOST", "127.0.0.1"),
+        "PORT": os.getenv("POSTGRES_PORT", "5432"),
     }
 }
 

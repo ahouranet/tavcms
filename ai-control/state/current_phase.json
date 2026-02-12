@@ -1,6 +1,6 @@
 {
   "phase": "Phase 0 — Bootstrap",
-  "focus": "راه‌اندازی DB (PostgreSQL) + migrate اولیه + superuser دستورالعمل",
-  "active_task": "Phase0-03",
+  "focus": "فعال‌سازی i18n URL prefix برای همه routeها (/fa/, /en/...) + تست routing",
+  "active_task": "Phase0-04",
   "last_updated": "2026-02-12"
 }

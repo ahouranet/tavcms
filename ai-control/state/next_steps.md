@@ -4,8 +4,8 @@
 
 ## Phase 0 — Bootstrap
 - [x] Phase0-01: ایجاد پروژه Django + ساختار پوشه‌ها (config/apps) + gitignore
-- [x] Phase0-02: پایه‌ی i18n routing + تعویض زبان (زیر /fa/ و /en/)
-- [ ] Phase0-03: راه‌اندازی DB (PostgreSQL) + migrate اولیه + superuser دستورالعمل
+- [x] Phase0-02: settings split (base/dev/prod) + env loader + logging پایه
+- [x] Phase0-03: راه‌اندازی DB (PostgreSQL) + migrate اولیه + superuser دستورالعمل
 - [ ] Phase0-04: فعال‌سازی i18n URL prefix برای همه routeها (/fa/, /en/...) + تست routing
 - [ ] Phase0-05: ساخت اپ `core` با قراردادها:
   - [ ] core.slug: service + SlugMixin (fa/en rules, uniqueness per language, max length)
