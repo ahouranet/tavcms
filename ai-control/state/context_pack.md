@@ -1,29 +1,12 @@
 # Context Pack (خلاصه وضعیت پروژه)
-- Versions: Python 3.12.x, Django 5.2.x (dependencies: Django>=5.2,<5.3)
-
-## North Star
-Django 5.2 CMS چندزبانه با URL prefix زبان و قراردادهای مشترک برای slug/dates/media/seo.
-
-## Invariants (خلاصه)
-- تمام URLها prefix زبان دارند: /fa/... و /en/...
-- slug فقط از core.slug
-- تاریخ فقط از core.dates (DB همیشه UTC/Gregorian)
-- اپ‌های محتوا فقط مصرف‌کننده قراردادها هستند، نه پیاده‌ساز.
-
-## Planned Modules (MVP)
-1) core (i18n/slug/dates + base mixins)
-2) media_core (Asset/upload)
-3) seo_core (meta fields + sitemap پایه)
-4) blog, page, product (همه import کننده)
-
-## Current Status
-- Phase: 0 (Bootstrap)
-- Next focus: ایجاد پروژه Django + ساختار settings و سپس core contracts (i18n/slug/dates)
-
-## Open Questions / Assumptions
-- پکیج ترجمه مدل‌ها: انتخاب در Phase0 (parler/modeltranslation/Custom).  
-  MVP می‌تواند ابتدا URL-based language + ترجمه ساده template را پیاده کند و ترجمه مدل‌ها را در فاز بعدی تثبیت کند.
-- تقویم‌ها: در MVP حداقل formatter در Front + نمایش در Admin list; ورودی Jalali/Hijri در admin می‌تواند فاز بعدی باشد.
-
-## Immediate Next Steps
-- Phase0-01 تا Phase0-04 (در next_steps.md)
+- نسخه‌ها ثابت مانده‌اند: Python 3.12.x و Django>=5.2,<5.3.
+- Phase0-02 انجام شد: پایه‌ی i18n routing و تعویض زبان پیاده‌سازی شد.
+- مسیرهای عمومی فقط به‌صورت language-prefixed در دسترس‌اند (`/fa/` و `/en/`).
+- مسیر ادمین طبق نیاز فعلی روی `/admin/` و بدون prefix نگه داشته شده است.
+- endpoint استاندارد `set_language` از URLهای داخلی Django فعال شد.
+- قالب پایه اضافه شد و شامل UI مینیمال برای تعویض زبان است.
+- صفحه‌ی خانه‌ی مینیمال برای راستی‌آزمایی دستی i18n ساخته شد.
+- تست حداقلی برای دسترسی مسیرهای `/fa/` و `/en/` اضافه شده است.
+- تست حداقلی برای بررسی تغییر زبان و ثبت مقدار در session اضافه شده است.
+- ساختار آماده‌ی توسعه برای لایه‌های بعدی باقی مانده و وارد فاز Phase0-03 نشده‌ایم.
+- گام بعدی: Phase0-03 (راه‌اندازی PostgreSQL + migrate flow مرتبط).
