@@ -1,11 +1,11 @@
 # tavcms
 
-Bootstrap for the TavCMS Django monolith.
+پروژه‌ی TavCMS یک Django Monolith چندزبانه است.
 
-## Prerequisites
+## پیش‌نیازها
 - Python 3.12.x
 
-## Setup
+## راه‌اندازی
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
@@ -13,21 +13,35 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## Run database migrations
+## اجرای مایگریشن‌ها
 ```bash
 python manage.py migrate
 ```
 
-## Create an admin user
+## ساخت کاربر ادمین
 ```bash
 python manage.py createsuperuser
 ```
 
-## Run development server
+## اجرای سرور توسعه
 ```bash
 python manage.py runserver
 ```
 
-## Notes
-- Settings module for local development defaults to `config.settings.dev`.
-- Language-prefixed routes are enabled (for example `/fa/admin/` and `/en/admin/`).
+## رفتار مسیرهای چندزبانه
+- تمام مسیرهای عمومی زیر پیشوند زبان قرار دارند.
+- نمونه‌ها:
+  - `http://127.0.0.1:8000/fa/`
+  - `http://127.0.0.1:8000/en/`
+- مسیر ادمین طبق قرارداد فعلی بدون پیشوند زبان است:
+  - `http://127.0.0.1:8000/admin/`
+
+## تغییر زبان
+- در هدر صفحه‌ی اصلی یک فرم ساده‌ی تغییر زبان وجود دارد.
+- فرم به endpoint استاندارد Django یعنی `/i18n/setlang/` ارسال می‌شود.
+- زبان انتخاب‌شده در کوکی استاندارد `django_language` ذخیره می‌شود.
+
+## افزودن زبان جدید
+1. در `config/settings/base.py` زبان جدید را به `LANGUAGES` اضافه کنید.
+2. در صورت نیاز، ترجمه‌ها را در مسیر `locale/` ایجاد کنید.
+3. پس از افزودن زبان، مسیرهای پیشونددار همان زبان به‌صورت خودکار با `i18n_patterns` فعال می‌شوند.

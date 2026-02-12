@@ -1,6 +1,6 @@
 {
   "phase": "Phase 0 — Bootstrap",
-  "focus": "settings split (base/dev/prod) + env loader + logging پایه",
-  "active_task": "Phase0-02",
+  "focus": "پایدارسازی DB (PostgreSQL) + migrate اولیه + مستندسازی اجرا",
+  "active_task": "Phase0-04",
   "last_updated": "2026-02-12"
 }

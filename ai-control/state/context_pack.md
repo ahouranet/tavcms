@@ -1,12 +1,14 @@
 # Context Pack (خلاصه وضعیت پروژه)
-- Versions pinned for bootstrap: Python 3.12.x, Django>=5.2,<5.3.
-- Phase0-01 completed: Django monolith bootstrap created under `config/` + `apps/`.
-- Settings split is in place: `config/settings/base.py`, `dev.py`, `prod.py`.
-- `apps/core` exists as the shared-contract scaffold (no slug/dates logic yet).
-- i18n groundwork enabled with `LocaleMiddleware` and `LANGUAGES` (`fa`, `en`).
-- URL routing scaffold is language-prefixed via `i18n_patterns` with default language prefixed.
-- Health endpoint scaffold exists for quick routing validation.
-- README now includes bootstrap workflow (venv, install, migrate, runserver, createsuperuser).
-- Current implementation uses SQLite for local bootstrap only; PostgreSQL setup is pending Phase0-03.
-- No future-phase contracts (slug/dates implementation) were started in this task.
-- Next task should focus on Phase0-02 from backlog ordering.
+- نسخه هدف پروژه همچنان Python 3.12.x و Django>=5.2,<5.3 است.
+- Phase0-03 تکمیل شد و قراردادهای مشترک Core برای اسلاگ، تاریخ، و تنظیمات سراسری پیاده‌سازی شدند.
+- `apps/core/slug.py` اکنون تولید اسلاگ خودکار از `title` را با قواعد فارسی/انگلیسی و یکتاسازی suffix (`-2`, `-3`) پوشش می‌دهد.
+- یکتایی اسلاگ به‌صورت language-aware انجام می‌شود و در محاسبه suffix، برش امن نسبت به `max_length` رعایت شده است.
+- `apps/core/mixins.py` شامل `SlugMixin` است تا اپ‌های محتوا قرارداد اسلاگ را re-implement نکنند.
+- `apps/core/dates.py` شامل `format_date` و `format_datetime` است: `fa` (jalali)، `en` (gregorian)، `ar` (hijri تقریبی).
+- مدل singleton با نام `GlobalSettings` در `apps/core/models.py` اضافه شد.
+- فیلدهای `GlobalSettings`: `default_language`, `slug_max_length`, `language_calendar_mapping` هستند.
+- ثبت ادمین برای `GlobalSettings` انجام شده و امکان افزودن رکورد دوم در admin بسته شده است.
+- migration اولیه اپ core برای `GlobalSettings` ساخته شد.
+- تست‌های `apps/core/tests_slug.py` سناریوهای auto slug، uniqueness، max length و format تاریخ را پوشش می‌دهند.
+- مسیرهای i18n فاز قبل بدون تغییر مانده‌اند و این فاز روی قراردادهای core متمرکز بوده است.
+- گام بعدی بک‌لاگ باید روی Phase0-04 (پایدارسازی و تکمیل جریان DB/PostgreSQL) متمرکز شود.
