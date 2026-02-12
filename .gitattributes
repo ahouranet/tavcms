@@ -1,0 +1,3 @@
+# Always keep branch version for these frequently-changing state files
+ai-control/state/* merge=ours
+ai-control/checkpoints/* merge=ours
