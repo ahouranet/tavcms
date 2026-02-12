@@ -1,6 +1,6 @@
 {
   "phase": "Phase 0 — Bootstrap",
-  "focus": "Bootstrap Django + core contracts (i18n/slug/dates)",
-  "active_task": "Phase0-01",
+  "focus": "settings split (base/dev/prod) + env loader + logging پایه",
+  "active_task": "Phase0-02",
   "last_updated": "2026-02-12"
 }

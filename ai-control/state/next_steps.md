@@ -3,7 +3,7 @@
 # Next Steps (Backlog خرد شده)
 
 ## Phase 0 — Bootstrap
-- [ ] Phase0-01: ایجاد پروژه Django + ساختار پوشه‌ها (config/apps) + gitignore
+- [x] Phase0-01: ایجاد پروژه Django + ساختار پوشه‌ها (config/apps) + gitignore
 - [ ] Phase0-02: settings split (base/dev/prod) + env loader + logging پایه
 - [ ] Phase0-03: راه‌اندازی DB (PostgreSQL) + migrate اولیه + superuser دستورالعمل
 - [ ] Phase0-04: فعال‌سازی i18n URL prefix برای همه routeها (/fa/, /en/...) + تست routing
