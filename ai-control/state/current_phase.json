@@ -1,6 +1,6 @@
 {
   "phase": "Phase 0 — Bootstrap",
-  "focus": "Bootstrap Django + core contracts (i18n/slug/dates)",
-  "active_task": "Phase0-01",
+  "focus": "راه‌اندازی DB (PostgreSQL) + migrate اولیه + superuser دستورالعمل",
+  "active_task": "Phase0-03",
   "last_updated": "2026-02-12"
 }
