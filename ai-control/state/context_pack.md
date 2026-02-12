@@ -1,12 +1,14 @@
 # Context Pack (خلاصه وضعیت پروژه)
-- Versions pinned for bootstrap: Python 3.12.x, Django>=5.2,<5.3.
-- Phase0-01 completed: Django monolith bootstrap created under `config/` + `apps/`.
-- Settings split is in place: `config/settings/base.py`, `dev.py`, `prod.py`.
-- `apps/core` exists as the shared-contract scaffold (no slug/dates logic yet).
-- i18n groundwork enabled with `LocaleMiddleware` and `LANGUAGES` (`fa`, `en`).
-- URL routing scaffold is language-prefixed via `i18n_patterns` with default language prefixed.
-- Health endpoint scaffold exists for quick routing validation.
-- README now includes bootstrap workflow (venv, install, migrate, runserver, createsuperuser).
-- Current implementation uses SQLite for local bootstrap only; PostgreSQL setup is pending Phase0-03.
-- No future-phase contracts (slug/dates implementation) were started in this task.
-- Next task should focus on Phase0-02 from backlog ordering.
+- نسخه‌ها در فاز بوت‌استرپ ثابت هستند: Python 3.12.x و Django>=5.2,<5.3.
+- Phase0-02 تکمیل شد: زیرساخت حداقلی i18n routing + language switch پیاده‌سازی شد.
+- مسیرهای عمومی اکنون فقط با پیشوند زبان در دسترس هستند: `/fa/` و `/en/`.
+- مسیر ادمین طبق معماری بدون پیشوند زبان حفظ شد: `/admin/`.
+- endpoint استاندارد Django برای تغییر زبان فعال شد: `/i18n/setlang/`.
+- قالب پایه (`templates/base.html`) شامل فرم تغییر زبان با POST و CSRF اضافه شد.
+- صفحه خانه‌ی حداقلی (`templates/home.html`) برای اعتبارسنجی دستی مسیرها و سوییچ زبان اضافه شد.
+- ترتیب Middleware برای locale صحیح است (SessionMiddleware قبل از LocaleMiddleware).
+- تنظیمات i18n شامل `LANGUAGE_CODE=fa`, `USE_I18N=True`, `LANGUAGES` و `LOCALE_PATHS` پابرجاست.
+- تست‌های `apps/core/tests.py` اکنون پوشش می‌دهند: resolve شدن `/fa/` و `/en/` و ست شدن کوکی زبان.
+- مستندات README به فارسی برای مسیرهای پیشونددار، تغییر زبان، و افزودن زبان جدید به‌روز شد.
+- قراردادهای فازهای بعد (DB PostgreSQL و core contracts مثل slug/dates) هنوز شروع نشده‌اند.
+- گام بعدی باید مطابق بک‌لاگ: Phase0-03 (راه‌اندازی PostgreSQL و migrate اولیه) باشد.

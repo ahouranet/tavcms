@@ -1,19 +1,15 @@
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path
+from django.urls import include, path
 
-
-def healthcheck(_request):
-    return HttpResponse("ok")
-
+from apps.core.views import home_view
 
 urlpatterns = [
-    path("health/", healthcheck, name="healthcheck"),
+    path("admin/", admin.site.urls),
+    path("i18n/", include("django.conf.urls.i18n")),
 ]
 
 urlpatterns += i18n_patterns(
-    path("admin/", admin.site.urls),
-    path("", healthcheck, name="home"),
+    path("", home_view, name="home"),
     prefix_default_language=True,
 )
