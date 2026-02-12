@@ -1,4 +1,11 @@
-from django.test import TestCase
+from unittest.mock import patch
+
+from django.contrib.admin.sites import AdminSite
+from django.db import OperationalError
+from django.test import RequestFactory, TestCase
+
+from apps.core.admin import GlobalSettingsAdmin
+from apps.core.models import GlobalSettings
 
 
 class I18nRoutingTests(TestCase):
@@ -16,3 +23,14 @@ class I18nRoutingTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response["Location"], "/en/")
         self.assertEqual(response.cookies["django_language"].value, "en")
+
+
+class GlobalSettingsAdminTests(TestCase):
+    def setUp(self):
+        self.site = AdminSite()
+        self.admin = GlobalSettingsAdmin(GlobalSettings, self.site)
+        self.request = RequestFactory().get("/admin/")
+
+    def test_has_add_permission_is_safe_without_table(self):
+        with patch("apps.core.admin.GlobalSettings.objects.exists", side_effect=OperationalError):
+            self.assertFalse(self.admin.has_add_permission(self.request))
